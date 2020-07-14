@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="frame">
+  {% for item in object_list %}
+  <div class="gallery">
+    <a href="{{ item.get_absolute_url }}" target="_blank"><img src="{{ item.image.url }}"></a>
+    <div class="description">{{ item.title }}</div>
+  </div>
+
+  {% endfor %}
+
+</div>
+{% endblock content %}

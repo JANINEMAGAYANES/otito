@@ -1,0 +1,60 @@
+<div class="checkout">
+    <form>
+        <div>
+            <label class="desc-title" id="title4" for="your_cart">Your Cart</label>
+            <span>{{ order.items.count }}</span>
+        </div>
+
+        {% for order_item in order.items.all %}
+        <div>
+            <div>
+                <label class="desc">{{ order_item.quantity }} x {{ order_item.item.title}}</label>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label>{{ order_item.item.description}}</label>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label>${{ order_item.get_final_price }}</label>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if order.coupon %}
+        <div class="desc">
+            <h6>Promo code</h6>
+            {{ order.coupon.code }}
+        </div>
+        <span class="desc">-${{ order.coupon.amount }}</span>
+        {% endif %}
+
+
+        <div class="desc">
+            <div>
+                <span>Total (USD)</span>
+                <strong>${{ order.get_total }}</strong>
+            </div>
+
+
+    </form>
+    {% if DISPLAY_COUPON_FORM %}
+    <form action="{% url 'core:add-coupon' %}" method="POST">
+        {% csrf_token %}
+        <div class="desc">
+            <div>
+                {{ couponform.code }}
+
+            </div>
+            <div>
+                <button class="btn" type="submit">Redeem</button>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+
+</div>

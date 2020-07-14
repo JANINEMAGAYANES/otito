@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="product">
+  <div class="gallery-product">
+    <img src="{{ object.image.url }}">
+  </div>
+  <div class="description-product">
+    <span>{{ object.title }}</span>
+    {% if object.discount_price %}
+    <span>
+      <del>${{ object.price }}</del>
+    </span>
+    <span>${{ object.discount_price }}</span>
+    {% else %}
+    <span>${{ object.price }}</span>
+    {% endif %}
+    <p>Description: </p>
+    <p>{{ object.description }}</p>
+
+    {% comment %}
+    <form>
+      <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+      <button class="btn" type="submit">
+        Add to cart
+        <i class="fas fa-shopping-cart ml-1"></i>
+      </button>
+    </form>
+    {% endcomment %}
+    <a href="{{ object.get_add_to_cart_url }}"><button class="btn">
+        <i class="fas fa-shopping-cart ml-1"></i>
+        Add to cart</button>
+    </a>
+    <a href="{{ object.get_remove_from_cart_url }}"><button class="btn">
+        Remove from cart</button>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}

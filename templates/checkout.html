@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="checkout">
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      <label class="desc desc-title" id="title1" for="delivery_address">Delivery address</label>
+    </div>
+    <div>
+      <label class="desc" for="shipping_address">Address</label>
+      <div>
+        <input type='text' placeholder='1234 Main St' id='shipping_address' name='shipping_address'
+          class="field text fn" />
+      </div>
+    </div>
+
+    <div>
+      <label class="desc" for="shipping_address2">Address 2 (optional)</label>
+      <div>
+        <input type='text' placeholder='Apartment or suite' id='shipping_address2' name='shipping_address2'
+          class="field text fn" />
+      </div>
+    </div>
+
+    <div>
+      <label class="desc" for="state">State</label>
+      <div>{{ form.shipping_state }}
+      </div>
+    </div>
+
+    <div>
+      <label class="desc" for="country">Country</label>
+      <div>
+        {{ form.shipping_country }}
+      </div>
+    </div>
+
+    <div>
+      <label class="desc" for="shipping_zip">Zip</label>
+      <div>
+        <input type='text' placeholder='Zip code' id='shipping_zip' name='shipping_zip' class="field text fn" />
+      </div>
+    </div>
+
+    <div>
+      <label class="desc desc-title" id="title" for="Billing-option">Billing Option</label>
+    </div>
+
+    <!-- <div>
+      <div>
+        <input type="checkbox" id="same_billing_address" name="same_billing_address">
+        <label class="desc" for="same_billing_address">Billing address is the same as my
+          delivery address</label>
+      </div>
+    </div> -->
+
+    <div>
+      <div>
+        <input type="checkbox" name="set_default_shipping" id="set_default_shipping">
+        <label for="set_default_shipping">Save as default delivery address</label>
+      </div>
+    </div>
+
+    {% if default_shipping_address %}
+    <div>
+      <div>
+        <input type="checkbox" name="use_default_shipping" id="use_default_shipping">
+        <label for="use_default_shipping">Use default delivery address:
+          {{ default_shipping_address.street_address|truncatechars:30 }}</label>
+      </div>
+    </div>
+    {% endif %}
+
+    <div>
+      <label class="desc desc-title" id="title2" for="billing_address">Billing address</label>
+    </div>
+
+    <div>
+      <label class="desc" for="billing_address">Address</label>
+      <div>
+        <input type='text' placeholder='1234 Main St' id='billing_address' name='billing_address' />
+      </div>
+    </div>
+
+    <div>
+      <label class="desc" for="billing_address">Address</label>
+      <div>
+        <input type='text' placeholder='Apartment or suite' id='billing_address2' name='billing_address2' />
+      </div>
+    </div>
+
+    <div>
+      <label for="country">Country</label>
+      {{ form.billing_country }}
+      <div>
+        Please select a valid country.
+      </div>
+    </div>
+
+    <div>
+      <label for="billing_zip">Zip</label>
+      <div>
+        <input type='text' placeholder='Zip code' id='billing_zip' name='billing_zip' class="field text fn" />
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <input type="checkbox" name="set_default_billing" id="set_default_billing">
+        <label for="set_default_billing">Save as default billing address</label>
+      </div>
+    </div>
+
+    {% if default_billing_address %}
+    <div>
+      <div>
+        <input type="checkbox" name="use_default_billing" id="use_default_billing">
+        <label for="use_default_billing">Use default billing address:
+          {{ default_billing_address.street_address|truncatechars:30 }}</label>
+      </div>
+    </div>
+    {% endif %}
+
+    <div>
+      <label class="desc desc-title" id="title3" for="payment-option">Payment Option</label>
+    </div>
+
+    <div>
+      {% for value, name in form.fields.payment_option.choices %}
+      <div>
+        <input id="{{ name }}" name="payment_option" value="{{ value }}" type="radio" required>
+        <label for="{{ name }}">{{ name }}</label>
+      </div>
+      {% endfor %}
+      <div>
+        <button class="btn" type="submit">Continue to checkout</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+
+
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+  var hideable_shipping_form = $('.hideable_shipping_form');
+  var hideable_billing_form = $('.hideable_billing_form');
+
+  var use_default_shipping = document.querySelector("input[name=use_default_shipping]");
+  var use_default_billing = document.querySelector("input[name=use_default_billing]");
+
+  use_default_shipping.addEventListener('change', function () {
+    if (this.checked) {
+      hideable_shipping_form.hide();
+    } else {
+      hideable_shipping_form.show();
+    }
+  })
+
+  use_default_billing.addEventListener('change', function () {
+    if (this.checked) {
+      hideable_billing_form.hide();
+    } else {
+      hideable_billing_form.show();
+    }
+  })
+
+</script>
+{% endblock extra_scripts %}
+
+<!-- <div>
+  <label class="desc" for="same_billing_address">Billing address is the same as my
+    delivery address</label>
+  <div>
+    <input type="checkbox" name="same_billing_address" id="same_billing_address">
+  </div>
+</div> -->
