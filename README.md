@@ -1,4 +1,5 @@
-Restaurant Ecommerce Site
+Restaurant Ecommerce Site:
+
 This is an ecommerce site for a Japanese Restaurant: Otito. 
 
 Installation:
