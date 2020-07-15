@@ -42,26 +42,40 @@ Usage:
 
 
 Sources: 
+
 Backend:
+
 Django Documentation - https://www.djangoproject.com/
+
 Stripe Documentation - https://stripe.com/docs/api
+
 Python Crash Course by Erik Matthes
+
 JustDjango - https://justdjango.com/
+
 Roy Fielding's Dissertation - https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf
 
 
 Database:
+
 SQLite Documentation - sqlite.org/index.html
+
 Postgres Documentation - https://www.postgresql.org/
+
 Heroku Postgres - https://devcenter.heroku.com/articles/heroku-postgresql
 
+
 Frontend:
+
 W3C School - https://www.w3schools.com/
 
 
 Deployment:
+
 Heroku Documentation - https://devcenter.heroku.com/categories/reference#deployment
 
+
 Testing:
+
 Selenium Documentation - https://www.selenium.dev/documentation/en/
 
