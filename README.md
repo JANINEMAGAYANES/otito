@@ -1,8 +1,11 @@
-The steps below serves as a guide to clone the project repository and run in a local machine:
+Restaurant Ecommerce Site
+This is an ecommerce site for a Japanese Restaurant: Otito. 
+
+Installation:
 
 1. Download the Git repository and go to the main directory where manage.py is.
 
-2. Create virtual env by typing “virtualenv venv” on the command line.
+2. Create virtual env for a container on the dependencies. Type “virtualenv venv” on the command line.
 
 3. Activate the Virtual Environment. Type “source venv/bin/activate” on the command line.
 
@@ -18,7 +21,7 @@ The steps below serves as a guide to clone the project repository and run in a l
 
 
 
-The steps below serves as a guide to navigate the app:
+Usage:
 
 1. Once the file is running at local host: http://127.0.0.1:8000/ , you will be directed in the homepage. Click on the Log In button to sign in on the app. 
 
