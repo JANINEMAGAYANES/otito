@@ -1,6 +1,6 @@
 Restaurant Ecommerce Site:
 
-This is an ecommerce site for a Japanese Restaurant: Otito. 
+This is an ecommerce site for a Japanese Restaurant, Otito. This website aims to improve the digital marketing strategy of the restaurant and increase sales by offering delivery options. 
 
 Installation:
 
