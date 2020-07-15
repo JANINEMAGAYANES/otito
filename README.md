@@ -17,7 +17,7 @@ The steps below serves as a guide to clone the project repository and run in a l
 10. Run python manage.py runserver
 
 
-The steps below serves as a guide to clone the project repository and run in a local machine:
+The steps below serves as a guide to navigate the app once its running on the local host:
 
 1. Once in the homepage, click on the Log In button to sign in on the app. 
 
