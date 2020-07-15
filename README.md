@@ -17,6 +17,7 @@ The steps below serves as a guide to clone the project repository and run in a l
 10. Run python manage.py runserver
 
 
+
 The steps below serves as a guide to navigate the app once its running on the local host:
 
 1. Once the file is running at local host: http://127.0.0.1:8000/ , you will be directed in the homepage. Click on the Log In button to sign in on the app. 
